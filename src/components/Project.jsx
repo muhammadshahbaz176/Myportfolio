@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import E_locker from "../assets/images/E_locker.png";
 import smart_order from "../assets/images/smart_order.png";
 import stampapp from "../assets/images/stampapp.png";
-import BioScope_1 from "../assets/images/bioscope_1.png";
+import BioScope_1 from "../assets/images/Bioscope_1.png";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
