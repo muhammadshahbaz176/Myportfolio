@@ -1,0 +1,573 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   ROOT VARIABLES & DESIGN TOKENS
+   ============================================================ */
+:root {
+  --orange: #f97316;
+  --orange-dark: #ea580c;
+  --orange-glow: rgba(249, 115, 22, 0.4);
+  --orange-glow-sm: rgba(249, 115, 22, 0.15);
+  --blue-glow: rgba(59, 130, 246, 0.1);
+  --bg-primary: #030712;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111827;
+  --bg-card-hover: #1f2937;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+}
+
+html {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse at 0% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 100% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: #fff;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 14px 34px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px var(--orange-glow-sm);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--orange-glow);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: 1.5px solid var(--glass-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  border-color: var(--orange);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   GLASS CARD
+   ============================================================ */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(249, 115, 22, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   SECTION STYLES
+   ============================================================ */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-title span {
+  color: var(--orange);
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.section-line {
+  width: 40px;
+  height: 4px;
+  background: var(--orange);
+  border-radius: 2px;
+  margin: 16px auto;
+}
+
+/* ============================================================
+   ABOUT IMAGE EFFECT
+   ============================================================ */
+.aboutImg {
+  position: relative;
+}
+
+.aboutImg::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 12px;
+  transform: rotate(6deg);
+  z-index: -1;
+  background: var(--orange);
+  opacity: 0.2;
+}
+
+/* ============================================================
+   SWIPER
+   ============================================================ */
+.swiper-pagination-bullet {
+  background: var(--text-secondary);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--orange);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ============================================================
+   INPUT / TEXTAREA
+   ============================================================ */
+input,
+textarea {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px var(--cyan-glow-sm);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+::placeholder {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    border-color: rgba(249, 115, 22, 0.3);
+  }
+
+  50% {
+    border-color: rgba(249, 115, 22, 0.8);
+  }
+}
+
+@keyframes typing-cursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(140px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(140px) rotate(-360deg);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+/* ============================================================
+   GRADIENT TEXT UTILITY
+   ============================================================ */
+.gradient-text {
+  color: var(--orange);
+}
+
+/* ============================================================
+   GLOW EFFECTS
+   ============================================================ */
+.glow-orange {
+  box-shadow: 0 0 30px var(--orange-glow), 0 0 60px rgba(249, 115, 22, 0.1);
+}
+
+.text-glow-orange {
+  text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+}
+
+/* ============================================================
+   SKILL PROGRESS BAR
+   ============================================================ */
+.skill-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--orange);
+  box-shadow: 0 0 10px var(--orange-glow);
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   TIMELINE (Education)
+   ============================================================ */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 24px;
+  width: 2px;
+  height: calc(100% + 16px);
+  background: linear-gradient(to bottom, var(--orange), transparent);
+}
+
+/* ============================================================
+   NAV ACTIVE LINK
+   ============================================================ */
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--orange);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--orange);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   HERO BACKGROUND PARTICLES
+   ============================================================ */
+.hero-bg-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   PROJECT CARD
+   ============================================================ */
+.project-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.project-card img {
+  transition: transform 0.5s ease;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(2, 8, 23, 0.95), rgba(2, 8, 23, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* ============================================================
+   CONTACT CARD
+   ============================================================ */
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.contact-info-item:hover {
+  border-color: var(--orange);
+  background: rgba(249, 115, 22, 0.05);
+  transform: translateX(5px);
+}
+
+/* ============================================================
+   HERO IMAGE RING
+   ============================================================ */
+.hero-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-image-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, var(--orange), #3b82f6, var(--orange)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: spin-slow 8s linear infinite;
+}
