@@ -17,7 +17,7 @@ const socialLinks = [
   },
   {
     icon: "logo-instagram",
-    href: "https://www.instagram.com/muhammadshahbaz176/",
+    href: "https://www.instagram.com/muhammad_shahbaz176/",
     label: "Instagram",
     color: "#E1306C",
   },

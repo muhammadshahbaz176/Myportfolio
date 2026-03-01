@@ -152,7 +152,7 @@ const Contact = () => {
                 {[
                   { icon: "logo-github", href: "https://github.com/muhammadshahbaz176", color: "#fff" },
                   { icon: "logo-linkedin", href: "https://www.linkedin.com/in/muhammad-shahbaz-004a3924b/", color: "#0A66C2" },
-                  { icon: "logo-instagram", href: "https://www.instagram.com/muhammadshahbaz176/", color: "#E1306C" },
+                  { icon: "logo-instagram", href: "https://www.instagram.com/muhammad_shahbaz176/", color: "#E1306C" },
 
                 ].map((social, i) => (
                   <a
