@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import E_locker from "../assets/images/E_locker.png";
 import smart_order from "../assets/images/smart_order.png";
 import stampapp from "../assets/images/stampapp.png";
-import BioScope_1 from "../assets/images/Bioscope_1.png";
+import BioScope_1 from "../assets/images/BioScope_1.png";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -38,7 +38,7 @@ const Project = () => {
       img: stampapp,
       name: "StampMap App",
       desc: "A location-based mobile application that allows users to create, view, and explore digital stamps on an interactive map. The app features OTP-based authentication, real-time stamp creation, and navigation directions from the user’s current location.",
-tech: ["React Native", "Express.js", "Node.js", "RESTful API", "MongoDB", "Maps API", "OTP Authentication"],
+      tech: ["React Native", "Express.js", "Node.js", "RESTful API", "MongoDB", "Maps API", "OTP Authentication"],
       github_link: null,
       live_link: null,
     },
